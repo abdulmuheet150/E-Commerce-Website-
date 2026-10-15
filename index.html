@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 20px 5%;
+  background: white;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+  color: #183d2b;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #4da6dd;
+}
+
+.search-box {
+  display: flex;
+  width: 300px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: none;
+  outline: none;
+}
+
+.search-box button {
+  padding: 10px 14px;
+  border: none;
+  background: #245b43;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #222222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #4b9568;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn,
+.cart-btn {
+  padding: 10px 13px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cart-btn {
+  background: #245b43;
+  color: white;
+  border-radius: 5px;
+}
+.nav-btn a{
+    text-decoration: none;
+    color: black;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 450px;
+    margin: 25px 4%;
+    padding: 50px 6%;
+    background-color: #f1f1e7;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.tagline {
+    color: #245b43;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 20px 0;
+    color: #18251f;
+    font-size: 58px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #245b43;
+}
+
+.description {
+    max-width: 390px;
+    color: #68736b;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.shop-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 22px;
+    background-color: #245b43;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.shop-btn:hover {
+    background-color: #19432f;
+}
+
+.small-text {
+    margin-top: 25px;
+    color: #737d76;
+    font-size: 12px;
+}
+
+.hero-image {
+    flex: 1;
+    min-height: 330px;
+    background-image: url("https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1000&q=80");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+.products-section {
+    padding: 65px 6%;
+    background: #ffffff;
+}
+
+.products-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.subtitle {
+    color: #245b43;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.products-heading h2 {
+    margin: 12px 0;
+    color: #18251f;
+    font-size: 36px;
+}
+
+.products-heading > p:last-child {
+    color: #737d76;
+    font-size: 14px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid #e8e9e2;
+    border-radius: 9px;
+    background: white;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #18251f12;
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #f5f5f1;
+}
+
+.product-info {
+    padding: 16px;
+}
+
+.category {
+    color: #737d76;
+    font-size: 12px;
+}
+
+.product-info h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.price {
+    margin: 12px 0;
+    color: #245b43;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #245b43;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-cart:hover {
+    background: #19432f;
+}
+
+/* FOOTER */
+.footer {
+    padding: 45px 6% 0;
+    background: #18251f;
+    color: #ffffff;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.3fr 1.3fr;
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: #75b58c;
+}
+
+.footer-brand p,
+.footer-column p {
+    color: #c4cec6;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-column h3 {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.footer-column a {
+    color: #c4cec6;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: #75b58c;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid #405047;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    color: #c4cec6;
+    font-size: 12px;
+    text-decoration: none;
+}
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px #00000030;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn img {
+    width: 36px;
+    height: 36px;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    
+<header class="navbar">
+
+  <a href="#" class="logo">NOVA<span>MART.</span></a>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search products...">
+    <button>🔍</button>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
+  </nav>
+
+  <div class="nav-btn">
+    <a href="login.html">Login</a>
+    <button class="cart-btn">
+        🛒 Cart <span id="cart-count">0</span></button>
+  </div>
+
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="tagline">YOUR EVERYDAY MARKETPLACE</p>
+
+        <h1>
+            Shop Smart.<br>
+            <span>Live Better.</span>
+        </h1>
+
+        <p class="description">
+            Discover amazing products at prices you'll love.
+            Your next favourite find is just a click away.
+        </p>
+
+        <a href="#products" class="shop-btn">
+            Explore Products →
+        </a>
+
+        <p class="small-text">
+            Quality finds. Great value. Every day.
+        </p>
+
+    </div>
+
+    <div class="hero-image"></div>
+
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section" id="products">
+
+    <div class="products-heading">
+        <p class="subtitle">OUR COLLECTION</p>
+        <h2>Popular Products</h2>
+        <p>Discover our handpicked favourites.</p>
+    </div>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Headphones">
+            <div class="product-info">
+                <p class="category">Electronics</p>
+                <h3>Wireless Headphones</h3>
+                <p class="price">Rs. 3,499</p>
+                <button class="add-cart" onclick="addProduct('Wireless Headphones', 3499)">
+                    Add to Cart +
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Watch">
+            <div class="product-info">
+                <p class="category">Accessories</p>
+                <h3>Classic Wrist Watch</h3>
+                <p class="price">Rs. 2,799</p>
+                <button class="add-cart" onclick="addProduct('Classic Wrist Watch', 2799)">
+                    Add to Cart +
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Shoes">
+            <div class="product-info">
+                <p class="category">Fashion</p>
+                <h3>Sport Sneakers</h3>
+                <p class="price">Rs. 4,299</p>
+                <button class="add-cart" onclick="addProduct('Sport Sneakers', 4299)">
+                    Add to Cart +
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80" alt="Lamp">
+            <div class="product-info">
+                <p class="category">Home & Living</p>
+                <h3>Modern Table Lamp</h3>
+                <p class="price">Rs. 1,899</p>
+                <button class="add-cart" onclick="addProduct('Modern Table Lamp', 1899)">
+                    Add to Cart +
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="#home" class="footer-logo">NOVA<span>MART.</span></a>
+            <p>Your everyday marketplace for great finds.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#footer">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="#footer">Help Center</a>
+            <a href="#footer">Shipping Information</a>
+            <a href="#footer">Returns Policy</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>Email: support@novamart.example</p>
+            <p>Online Shopping Store</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Nova Mart. All rights reserved.</p>
+        <a href="#home">Back to top ↑</a>
+    </div>
+
+</footer>
+
+<script>
+    let cartCount = 0;
+
+    function addProduct(productName, price) {
+        cartCount++;
+
+        document.getElementById("cart-count").textContent = cartCount;
+
+        alert(productName + " added to cart!");
+    }
+</script>
+
+
+<!-- WhatsApp Floating Contact Button -->
+<a
+    href="https://wa.me/923001234567"
+    class="whatsapp-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact us on WhatsApp"
+>
+    <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+    >
+</a>
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 150px;
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 8px;
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 25px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Login Page</h1>
+
+    <input type="email" id="LoginEmail" placeholder="Enter Your Email">
+    <br><br>
+
+    <input type="password" id="LoginPassword" placeholder="Enter Your Password">
+    <br><br>
+
+    <button onclick="send()">Login</button><br><br>
+     
+    Click Here <a href="signup.html">Sign Up</a> If You Dont Have Any Account
+
+    <script>
+        function send() {
+            let LoginEmail = document.getElementById("LoginEmail").value;
+            let LoginPassword = document.getElementById("LoginPassword").value;
+
+            let email = localStorage.getItem("email");
+            let password = localStorage.getItem("password");
+
+            if (LoginEmail === email && LoginPassword === password) {
+                alert("Login Successfully");
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid Email Or Password");
+            }
+        }
+    </script>
+
+</body>
+</html>
